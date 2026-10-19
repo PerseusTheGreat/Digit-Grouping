@@ -27,7 +27,7 @@ Download [`jquery.digitgrouping.js`](jquery.digitgrouping.js) and load it after 
 Or load it from a CDN such as `<cdnjs>`, pinned to a release tag:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/PerseusTheGreat/jquery-digit-grouping@1.0.0/jquery.digitgrouping.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/PerseusTheGreat/Digit-Grouping/jquery.digitgrouping.js"></script>
 ```
 
 With a bundler or AMD loader, the plugin registers itself on the `jquery` module:
