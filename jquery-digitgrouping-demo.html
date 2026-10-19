@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" data-bs-theme="dark">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html" />
+    <meta http-equiv="content-language" content="en-US" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>jQuery Digit Grouping Plugin</title>
+    <meta name="author" content="Claude.AI, Arash Laylazi" />
+    <meta name="description" content="Demo of Digit Grouping (jQuey plugin)" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+</head>
+<body class="m-0 p-0">
+    <main class="container">
+        <div class="row justify-content-center my-3">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+                <h1 class="display-6 fs-4 mb-3 text-center">jQuery Digit Grouping Plugin Demo</h1>
+
+                <div class="card mb-3">
+
+                    <div class="card-header">
+                        Set up in JavaScript:
+                    </div>
+
+                    <div class="card-body">
+
+                        <label for="amount"
+                               class="form-label">
+                            Amount
+                        </label>
+
+                        <input id="amount"
+                               type="text"
+                               class="form-control form-control-lg mb-2"
+                               placeholder="1,234,567,890" />
+
+                        <p class="form-text">
+                            Raw value:
+                            &quot;<output class="font-monospace lh-1" id="raw-amount"></output>&quot;
+                        </p>
+
+                        <h5 class="card-title">Markup / Code:</h5>
+
+                        <div class="border rounded bg-light-subtle p-3">
+<pre class="mb-0"><code>&lt;input id="amount"
+       type="text"
+       placeholder="1,234,567,890" /&gt;
+
+$("#amount")
+    .digitGrouping({
+        separator: ",",
+        groupSize: 3,
+        maxDigits: 10
+    });</code></pre>
+                        </div>
+
+                    </div><!--card-body-->
+                </div><!--card-->
+
+                <div class="card">
+
+                    <div class="card-header">
+                        Set up with data attributes:
+                    </div>
+
+                    <div class="card-body">
+
+                        <label for="credit"
+                               class="form-label">
+                            Card No.
+                        </label>
+
+                        <input id="credit"
+                               type="text"
+                               class="form-control form-control-lg mb-2"
+                               placeholder="0000 0000 0000 0000"
+                               data-digit-grouping="true"
+                               data-group-size="4"
+                               data-separator=" "
+                               data-max-digits="16" />
+
+                        <p class="form-text">
+                            Raw value:
+                            &quot;<output class="font-monospace lh-1" id="raw-credit"></output>&quot;
+                        </p>
+
+                        <h5 class="card-title">Markup:</h5>
+
+                        <div class="border rounded bg-light-subtle p-3">
+<pre class="mb-0"><code>&lt;input type='text'
+       placeholder='0000 0000 0000 0000'
+       data-digit-grouping=''
+       data-group-size='4'
+       data-separator=' '
+       data-max-digits='16' /&gt;</code></pre>
+                        </div>
+
+                    </div><!--card-body-->
+                </div><!--card-->
+            </div><!--col-->
+        </div><!--row-->
+    </main><!--container-->
+
+    <script src="https://code.jquery.com/jquery-4.0.0.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/PerseusTheGreat/DigitGrouping/jquery.digitgrouping.min.js"></script>
+    <script>
+        $(function () {
+            $("#amount")
+                .digitGrouping({
+                    separator: ",",
+                    groupSize: 3,
+                    maxDigits: 10
+                })
+                .on("input", function () {
+                    $("#raw-amount").text($(this).digitGrouping("val") || "");
+                });
+
+            $("#credit")
+                .on("input", function () {
+                    $("#raw-credit").text($(this).digitGrouping("val") || "");
+                });
+        });
+    </script>
+</body>
+</html>
